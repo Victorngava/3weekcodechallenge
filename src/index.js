@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded',()=> {
 
     //Function to fetch movie list from the serevr and populate the menu
     function fetchandPopulateMovieList() {
-        fetch( 'http://localhost:3000/films')
+        fetch( 'https://json-server-iewt.onrender.com/films')
           .then(response => response.json())
           .then (films => {
                 films.forEach(film => {
@@ -55,7 +55,7 @@ document.addEventListener('DOMContentLoaded',()=> {
 
     //Function to fetch and display movie details based on film ID
     function fetchAndDisplayMovieDetails(film) {
-        fetch('htttp://localhost:3000/films/${film.id}')
+        fetch('https://json-server-iewt.onrender.com/films/${film.id}')
             .then(response =>response.json())
             .then(movie => {
                 //Update movie details in the DOM
@@ -87,7 +87,7 @@ document.addEventListener('DOMContentLoaded',()=> {
             movie.tickets_sold++;
 
             //Update tickets sold count in the database
-            fetch('http://localhost:3000/films/${movie.id}'), {
+            fetch('https://json-server-iewt.onrender.com/films/${movie.id}'), {
                 method: 'PATCH',
                 headers: {
                     'Content-Type': 'application/json'
@@ -109,7 +109,7 @@ document.addEventListener('DOMContentLoaded',()=> {
                 });
 
                 //Add ticket purchase record to the database
-                fetch("http://localhost:3000/tickets", {
+                fetch("hhttps://json-server-iewt.onrender.com/tickets", {
                     method:"POST",
                     headers : {
                         "Content-Type":"application/json",
@@ -130,7 +130,7 @@ document.addEventListener('DOMContentLoaded',()=> {
     function deleteMovie(film) {
         const deleteBtn = document.getElementById(film.id);
         deleteBtn.addEventListener("click", () => {
-            fetch(`http://localhost:3000/films/${film.id}`, {
+            fetch(`https://json-server-iewt.onrender.com/films/${film.id}`, {
                 method: "DELETE",
                 headers: {
                     "Content-Type": "applica    tion/json",
