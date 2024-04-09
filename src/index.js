@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded',()=> {
     const moviePoster = document.getElementById('poster')
     const buyTicketButton = document.getElementById('buy-ticket')
 
-    //Function to fetch movie list from the serevr and populate the menu
+    //Function to fetch movie list from the serevr and populate menu
     function fetchandPopulateMovieList() {
         fetch( 'https://json-server-iewt.onrender.com/films')
           .then(response => response.json())
